@@ -56,10 +56,9 @@ export default function Login() {
     const response = await easyFetch('auth/login', fields);
     const { data, error } = response;
     if (error) {
-      error.map(({ field, message }) =>{
-        setErrors({ ...errors, [field]: message });
-        
-      });
+      error.map(({ field, message }) =>
+        setErrors({ ...errors, [field]: message })
+        );
       failedToast();
     } else {
       successToast();
